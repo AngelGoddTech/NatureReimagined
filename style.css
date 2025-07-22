@@ -1,0 +1,147 @@
+:root {
+    --bg-color: #020617; /* slate-950 */
+    --card-bg-color: rgba(15, 23, 42, 0.5); /* slate-900 with alpha */
+    --border-color: rgba(51, 65, 85, 0.5); /* slate-700 with alpha */
+    --text-color: #cbd5e1; /* slate-300 */
+    --heading-color: #f1f5f9; /* slate-100 */
+    --accent-color: #22d3ee; /* cyan-400 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+}
+
+.hero-section {
+    background-color: var(--bg-color);
+}
+
+.hero-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://r2.flowith.net/files/o/1752790098297-ocean_of_the_sky_discovery_index_0@1024x1024.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    animation: zoom-in 20s ease-out forwards;
+}
+
+@keyframes zoom-in {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.hero-title, .hero-subtitle, .cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-up 0.8s ease-out forwards;
+}
+
+.hero-subtitle { animation-delay: 0.2s; }
+.cta-button { animation-delay: 0.4s; }
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.anim-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.concept-card:nth-child(2) { transition-delay: 0.1s; }
+.concept-card:nth-child(3) { transition-delay: 0.2s; }
+.concept-card:nth-child(4) { transition-delay: 0.3s; }
+
+
+/* Detail Page & Gallery Styles */
+.page-header {
+    background-color: #0f172a; /* slate-900 */
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem;
+    width: 100%;
+    z-index: 10;
+}
+
+.detail-page-body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+}
+
+.breadcrumb a {
+    color: #94a3b8; /* slate-400 */
+    transition: color 0.3s;
+}
+.breadcrumb a:hover {
+    color: var(--accent-color);
+}
+.breadcrumb span {
+    color: #f1f5f9; /* slate-100 */
+}
+
+.storyboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.storyboard-card {
+    background-color: rgba(15, 23, 42, 0.7); /* slate-900 with alpha */
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.metadata-card {
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.keyword-tag {
+    display: inline-block;
+    background-color: #1e293b; /* slate-800 */
+    color: #94a3b8; /* slate-400 */
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.keyword-tag:hover {
+    background-color: var(--accent-color);
+    color: #020617;
+}
+
+/* Aspect ratio utility (for Tailwind JIT) */
+@media (min-width: 768px) {
+    .md\\:aspect-w-4.md\\:aspect-h-3 {
+        position: relative;
+        padding-bottom: 75%;
+    }
+    .md\\:aspect-w-4.md\\:aspect-h-3 > * {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
